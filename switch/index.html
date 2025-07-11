@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const testScore = 85;
+        let result;
+
+        switch (true) {
+            case testScore >= 90:
+                result = "A+";
+                break;
+            case testScore >= 80:
+                result = "A";
+                break;
+            case testScore >= 70:
+                result = "B+";
+                break;
+            case testScore >= 60:
+                result = "B";
+                break;
+            case testScore >= 50:
+                result = "C";
+                break;
+            default:
+                result = "F";
+        }
+
+        console.log(result);
+
+
+    </script>
+</body>
+
+</html>

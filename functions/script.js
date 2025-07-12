@@ -1,3 +1,4 @@
+/*
 function showMessage(from, text = getTime()) {
     return `Good ${text} ${from}`;
 }
@@ -98,7 +99,7 @@ counter();
 
 ////////////////////////////////////////
 // Callback
-/*
+
 function askUser(cookiesAccess, yes, no) {
     if (confirm(cookiesAccess)) return yes();
     else return no();
@@ -129,9 +130,10 @@ const cookiesStatus = askUser(
 );
 
 console.log(cookiesStatus);
-*/
+
 
 ////////////////////////////////////
+
 // const age = prompt("What is your age?", 18);
 const age = 25;
 
@@ -139,5 +141,21 @@ const welcome =
     age > 18 ? () => console.log("Greetings") : () => console.log("Hello");
 
 welcome();
+*/
 
 //////////////////////////////////////
+function makeCounter() {
+    let count = 0;
+
+    return function () {
+        count++;
+        return count;
+    };
+}
+
+const counter = makeCounter();
+
+// function.[[environment]] ➡️ lexical environment of outer fn
+console.log(counter());
+console.log(counter());
+console.log(counter());

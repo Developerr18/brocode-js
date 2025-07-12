@@ -161,7 +161,23 @@ console.log(counter());
 */
 
 /////////////////////////////////////////
-let arr = [1, 2, 3, 4, 5, 6, 7];
+// let arr = [1, 2, 3, 4, 5, 6, 7];
 
-alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
-alert(arr.filter(inArray([1, 2, 10]))); // 1,2
+// alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
+// alert(arr.filter(inArray([1, 2, 10]))); // 1,2
+
+/////////////////////////////////////////
+/*
+fn1(fn2);
+
+function fn1(callback) {
+    setTimeout(() => {
+        console.log("fn1 executed");
+        callback();
+    }, 2000);
+}
+
+function fn2() {
+    console.log("Data received! fn2 executed");
+}
+*/

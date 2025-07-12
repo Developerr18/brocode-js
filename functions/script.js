@@ -141,7 +141,6 @@ const welcome =
     age > 18 ? () => console.log("Greetings") : () => console.log("Hello");
 
 welcome();
-*/
 
 //////////////////////////////////////
 function makeCounter() {
@@ -159,3 +158,10 @@ const counter = makeCounter();
 console.log(counter());
 console.log(counter());
 console.log(counter());
+*/
+
+/////////////////////////////////////////
+let arr = [1, 2, 3, 4, 5, 6, 7];
+
+alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
+alert(arr.filter(inArray([1, 2, 10]))); // 1,2

@@ -6,6 +6,7 @@ fruits.forEach((fruit, index, arr) => {
 
 console.log(fruits);
 
+////////////////////////////////////////////
 const fruitsMap = ["apple", "orange", "banana", "mango"];
 
 const formatedArr = fruitsMap.map((fruit) => {
@@ -13,3 +14,13 @@ const formatedArr = fruitsMap.map((fruit) => {
 });
 
 console.log(formatedArr);
+
+///////////////////////////////////////////
+const dates = ["2025-07-13", "2025-03-12", "2025-01-17"];
+
+const formatedDate = dates.map((date) => {
+    const splitedDate = date.split("-");
+    return `${splitedDate[2]}/${splitedDate[1]}/${splitedDate[0]}`;
+});
+
+console.log(formatedDate);

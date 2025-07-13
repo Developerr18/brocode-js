@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Password Generator</title>
+</head>
+
+<body>
+    <div class="app-container">
+        <input type="number" id="text-box" value="8" min="6" max="20">
+        <button onclick="generatePassword()">Generate Password</button> <br>
+
+        <input type="checkbox" id="uppercase_checkbox">
+        <label for="uppercase_checkbox">Uppercase (A-Z)</label> <br>
+
+        <input type="checkbox" id="lowercase_checkbox">
+        <label for="lowercase_checkbox">Lowercase (a-z)</label> <br>
+
+        <input type="checkbox" id="numbers_checkbox">
+        <label for="numbers_checkbox">Numbers (0-9)</label> <br>
+
+        <input type="checkbox" id="symbol_checkbox">
+        <label for="symbol_checkbox">Symbols (!@#$%^&*_/+-)</label> <br>
+
+        <input id="password-output" readonly style="margin-top: 15px;">
+        <p>Password Strength: <span id="pw-strength"></span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

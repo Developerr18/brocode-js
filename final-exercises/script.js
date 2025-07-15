@@ -271,7 +271,7 @@ async function handleAsync() {
 /////////////////////////////////////////////
 // exercise 12 : Array advanced
 
-const numsArr = [1, 2, 43, 22, 43, 5, 5, 22, 1, 4, 4];
+const numsArr = [1, 2, 2, 7, 2, 43, 22, 43, 5, 5, 22, 1, 4, 4];
 
 function removeDuplicates(numsArr) {
     /*
@@ -292,3 +292,16 @@ function removeDuplicates(numsArr) {
     const uniqueArr = [...new Set(numsArr)];
     return uniqueArr.sort((a, b) => a - b);
 }
+
+//////////////////////////////////////////
+const numbers = [12, 45, 23, 18, 19, 25];
+
+function findSecondLargest(numsArr) {
+    const largestNum = Math.max(...numsArr);
+
+    const filterList = numsArr.filter((num) => num !== largestNum);
+
+    return Math.max(...filterList);
+}
+
+console.log(findSecondLargest(numbers));

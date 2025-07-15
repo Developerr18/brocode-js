@@ -267,5 +267,3 @@ async function handleAsync() {
     const output = await wait2Seconds();
     console.log(output);
 }
-
-handleAsync();

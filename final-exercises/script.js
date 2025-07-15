@@ -267,3 +267,28 @@ async function handleAsync() {
     const output = await wait2Seconds();
     console.log(output);
 }
+
+/////////////////////////////////////////////
+// exercise 12 : Array advanced
+
+const numsArr = [1, 2, 43, 22, 43, 5, 5, 22, 1, 4, 4];
+
+function removeDuplicates(numsArr) {
+    /*
+    const updatedArr = [];
+
+    for (let num of numsArr) {
+        if (updatedArr.includes(num)) {
+            continue;
+        } else {
+            updatedArr.push(num);
+        }
+    }
+
+    return updatedArr.sort((a, b) => a - b);
+    */
+
+    ////////////////////
+    const uniqueArr = [...new Set(numsArr)];
+    return uniqueArr.sort((a, b) => a - b);
+}

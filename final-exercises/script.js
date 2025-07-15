@@ -304,4 +304,84 @@ function findSecondLargest(numsArr) {
     return Math.max(...filterList);
 }
 
-console.log(findSecondLargest(numbers));
+///////////////////////////////////////////
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
+function oddEven(numsArr) {
+    const even = numsArr.filter((num) => num % 2 === 0);
+    const odd = numsArr.filter((num) => num % 2 !== 0);
+
+    return { even, odd };
+}
+
+////
+function oddEven(numsArr) {
+    const even = [];
+    const odd = [];
+
+    for (let num of numsArr) {
+        num % 2 === 0 ? even.push(num) : odd.push(num);
+    }
+
+    return { even, odd };
+}
+
+//////////////////////////////////////
+const nestedArr = [1, [2, 3], [4, [5, 6]]];
+
+function flattenArr(arr) {
+    return arr.flat(Infinity);
+}
+
+//////////////////////////////////////
+// exercise 13 : OOP
+
+// Methods: deposit(), withdraw(), getBalance()
+// Handle insufficient funds in withdraw()
+
+class BankAccount {
+    constructor(accountNumber, balance, owner) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.owner = owner;
+    }
+
+    deposit(amount) {
+        if (amount <= 0) {
+            console.log("Deposit amount must be greater than 0");
+            return;
+        }
+        this.balance += amount;
+        console.log(`Deposit ${amount}, New balance: ${this.balance}`);
+    }
+
+    withdraw(amount) {
+        if (amount <= 0) {
+            console.log("Withdraw amount must be greater than 0.");
+            return;
+        }
+
+        if (this.balance < amount) {
+            console.log(
+                `❌ insufficient funds, Maximun withdrawal amount ${this.balance}`
+            );
+            return;
+        }
+        this.balance -= amount;
+        console.log(`Withdrew ${amount}, New balance: ${this.balance}`);
+    }
+
+    getBalance() {
+        return this.balance;
+    }
+}
+
+const user = new BankAccount("345288769", 4000, "Dinesh Nikum");
+
+// user.deposit(2000);
+// user.deposit(5000);
+// user.withdraw(1200);
+// console.log(user);
+// console.log(user.getBalance());
+
+////////////////////////////////////////////

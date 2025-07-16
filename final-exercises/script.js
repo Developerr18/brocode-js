@@ -1,4 +1,3 @@
-/*
 // exercise 1
 const name = "Dinesh";
 const age = 25;
@@ -68,9 +67,9 @@ const sumNumbers = arr.reduce((acc, nextVal) => acc + nextVal);
 console.log(sumNumbers);
 
 ////////////////////////////////////
-const arr = [3, 7, 2, -7, 9, 1, 5, 10, 14, -8, 13];
+const arr11 = [3, 7, 2, -7, 9, 1, 5, 10, 14, -8, 13];
 
-const evenNumbers = arr.filter((num) => num % 2 === 0);
+const evenNumbers = arr11.filter((num) => num % 2 === 0);
 
 /////////////////////////////////////
 // exercise 3 // String Manipulation
@@ -120,7 +119,7 @@ function capitalizedWord(str) {
 ///////////////////////////////////////////
 // exercise 4 : basic conditionals
 
-const numsArr = [2, 5, -6, 10, "choco", -2, -3, "salesman", 12];
+const numsArr1 = [2, 5, -6, 10, "choco", -2, -3, "salesman", 12];
 
 function checkNum(arr) {
     let modifiedArr = [];
@@ -249,7 +248,6 @@ document.getElementById("toggle-btn").addEventListener("click", () => {
     const para = document.getElementById("para");
     para.classList.toggle("para");
 });
-*/
 
 //////////////////////////////////////////
 // exercise 11 : Async Js
@@ -305,7 +303,7 @@ function findSecondLargest(numsArr) {
 }
 
 ///////////////////////////////////////////
-const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 function oddEven(numsArr) {
     const even = numsArr.filter((num) => num % 2 === 0);
@@ -332,6 +330,8 @@ const nestedArr = [1, [2, 3], [4, [5, 6]]];
 function flattenArr(arr) {
     return arr.flat(Infinity);
 }
+
+console.log(flattenArr(nestedArr));
 
 //////////////////////////////////////
 // exercise 13 : OOP
@@ -376,12 +376,97 @@ class BankAccount {
     }
 }
 
-const user = new BankAccount("345288769", 4000, "Dinesh Nikum");
+const user = new BankAccount("345288769", 4000, "Dinesh");
 
-// user.deposit(2000);
-// user.deposit(5000);
-// user.withdraw(1200);
-// console.log(user);
-// console.log(user.getBalance());
+user.deposit(2000);
+user.deposit(5000);
+user.withdraw(1200);
+console.log(user);
+console.log(user.getBalance());
 
 ////////////////////////////////////////////
+// exercise 14 : Higher order fn
+function processArray(arr, callback) {
+    return arr.map((item) => callback(item));
+}
+
+const numsArr11 = [10, 12, 34, 37, 50];
+const double = (num) => num * 2;
+const result = processArray(numsArr11, double);
+
+//////////////
+const strings = ["apple", "banana", "cherry"];
+const toUpperCase = (str) => str.toUpperCase();
+console.log(processArray(strings, toUpperCase));
+
+/////////////
+const getLength = (str) => str.length;
+console.log(processArray(strings, getLength));
+
+/////////////////////////////////////////////
+// exercise 15
+
+const sales = [
+    { product: "mouse", price: 25, quantity: 10 },
+    { product: "laptop", price: 1000, quantity: 2 },
+    { product: "macbook", price: 1500, quantity: 1 },
+    { product: "laptop", price: 1000, quantity: 1 },
+    { product: "iPhone", price: 900, quantity: 3 },
+];
+
+function getTotalRevenue(items) {
+    const total = items.reduce((acc, item) => {
+        return acc + item.price * item.quantity;
+    }, 0);
+
+    return total;
+}
+
+/////////
+function groupItems(items) {
+    return items.reduce((acc, item) => {
+        if (acc[item.product]) {
+            acc[item.product] += item.quantity;
+        } else {
+            acc[item.product] = item.quantity;
+        }
+        return acc;
+    }, {});
+}
+
+console.log(groupItems(sales)); // {laptop: 3, mouse: 10}
+
+/////////
+function mostExpensive(items) {
+    const expensiveItem = items.reduce((maxItem, currentItem) => {
+        return currentItem.price > maxItem.price ? currentItem : maxItem;
+    });
+
+    return expensiveItem;
+}
+
+////////
+// Convert to a summary object with product names as keys
+
+function summarizeSales(items) {
+    const summary = {};
+
+    for (let item of items) {
+        const { product, price, quantity } = item;
+
+        if (!summary[product]) {
+            summary[product] = {
+                totalQuantity: 0,
+                price,
+                totalRevenue: 0,
+            };
+        }
+
+        summary[product].totalQuantity += quantity;
+        summary[product].totalRevenue += price * quantity;
+    }
+
+    return summary;
+}
+
+console.log(summarizeSales(sales));
